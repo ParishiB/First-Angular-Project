@@ -1,12 +1,29 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
-  <div
-    *ngFor="let course of courses"
-    (click)="goToCourse(course.id)"
-    class="cursor-pointer bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-  >
-    <div class="p-6">
-      <h3 class="text-lg font-semibold text-gray-800">{{ course.name }}</h3>
-      <p class="text-gray-600 mt-2">Duration: {{ course.duration }}</p>
+<div class="flex flex-col min-h-screen">
+  <app-header></app-header>
+
+  <div class="flex-grow grid grid-cols-[15%_auto] gap-6 p-4">
+    <div>
+      <h1 class="text-2xl font-bold">Home</h1>
+      <h1 class="text-xl font-semibold mt-2">Courses</h1>
+    </div>
+    <div class="flex-grow p-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div
+          class="bg-white shadow-md rounded-lg p-4"
+          *ngFor="let course of courses"
+        >
+          <h2 class="text-xl font-semibold">{{ course.name }}</h2>
+          <p class="text-gray-600">{{ course.duration }}</p>
+          <button
+            (click)="goToCourse(course.id)"
+            class="mt-4 bg-[#015151] text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            View Details
+          </button>
+        </div>
+      </div>
     </div>
   </div>
+
+  <p class="bg-[#015151] h-[100px] mt-auto"></p>
 </div>
